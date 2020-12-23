@@ -2,25 +2,11 @@ const express = require("express");
 
 const app = express();
 
-const mysql = require("mysql");
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "admin",
-  password: "MateoPatricio@2015",
-  database: "socialMedia",
-});
-
 const port = 3001;
 
-app.get("/register", (req, res) => {
-  db.query(
-    "INSERT INTO users (username, password) VALUES ('paul', 'password')",
-    (err, results) => {
-      // console.log(err);
-      res.send(results);
-    }
-  );
-});
+const userRoute = require("./routes/User");
+
+app.use("/user", userRoute());
 
 app.listen(port, () => {
   console.log(`Express listening on port ${port}`);
