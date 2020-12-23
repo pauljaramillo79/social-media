@@ -26,6 +26,6 @@ app.listen(port, () => {
   console.log(`Express listening on port ${port}`);
 });
 
-// Note:
+// Note: When making first get call to mysql 8 datbase, you might get the following error
 // Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
-// MySQL 8 has new more secure protection named caching_sha2_password. The problem is mysqljs in Node (the package you install with npm i mysql and use it in your Node code) doesn't support this new default authentication method of MySQL 8, yet. To resolve this go into mySQL Workbench and run the following ALTER USER 'username'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; ... where you insert corresponding username and password. After this run the command .... flush privileges;
+// Solution: MySQL 8 has new more secure protection named caching_sha2_password. The problem is mysqljs in Node (the package you install with npm i mysql and use it in your Node code) doesn't support this new default authentication method of MySQL 8, yet. To resolve this go into mySQL Workbench and run the following ALTER USER 'username'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; ... where you insert corresponding username and password. After this run the command .... flush privileges; The only issue with this solution is that you are reverting mySQL DB to use the older less secure mysql_native_password. Should check in future once mysql node supports caching_sha2_password.
