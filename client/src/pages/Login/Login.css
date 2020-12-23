@@ -17,6 +17,12 @@
   padding-bottom: 1.3rem;
   font-family: "Poppins", sans-serif;
 }
+.LoginForm p {
+  font-family: "Poppins", sans-serif;
+  color: red;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+}
 .LoginForm input {
   border: rgb(214, 214, 214) solid 1px;
   margin-bottom: 1.3rem;

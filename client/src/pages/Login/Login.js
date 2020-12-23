@@ -15,6 +15,7 @@ const Login = () => {
       if (response.data.loggedIn) {
         localStorage.setItem("loggedIn", true);
         localStorage.setItem("username", response.data.username);
+        setErrorMessage("");
       } else {
         setErrorMessage(response.data.message);
       }
@@ -39,7 +40,7 @@ const Login = () => {
           }}
         />
         <button onClick={loginHandler}>Login</button>
-        <h3>{errorMessage}</h3>
+        <p>{errorMessage}</p>
       </div>
     </div>
   );
