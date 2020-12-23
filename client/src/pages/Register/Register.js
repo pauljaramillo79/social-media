@@ -7,7 +7,7 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const submitRegister = () => {
+  const registerHandler = () => {
     Axios.post("http://localhost:3001/user/register", {
       username: username,
       password: password,
@@ -34,7 +34,7 @@ const Register = () => {
             setPassword(e.target.value);
           }}
         />
-        <button onClick={submitRegister}>Register</button>
+        <button onClick={registerHandler}>Register</button>
       </div>
     </div>
   );
