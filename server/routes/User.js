@@ -28,12 +28,18 @@ module.exports = () => {
         }
         if (results.length > 0) {
           if (password == results[0].password) {
-            res.send("You are logged in!");
+            res.json({ loggedIn: true, username: username });
           } else {
-            res.send("Wrong username/password combo");
+            res.json({
+              loggedIn: false,
+              message: "Wrong username/password combo",
+            });
           }
         } else {
-          res.send("User doesn't exist");
+          res.json({
+            loggedIn: false,
+            message: "User doesn't exist",
+          });
         }
       }
     );
